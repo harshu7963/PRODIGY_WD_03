@@ -1,0 +1,113 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(120deg, #ffccbc, #d1c4e9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #444;
+}
+
+.container {
+    text-align: center;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 8px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 15px;
+    border: 2px solid #b0bec5;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background: #fafafa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid #cfd8dc;
+    border-radius: 10px;
+    transition: background 0.4s, transform 0.4s, box-shadow 0.4s, border-color 0.4s;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cell:hover {
+    background: #e0e0e0;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    border-color: #90a4ae;
+}
+
+.cell.x::before {
+    content: 'X';
+    color: #d32f2f;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    transform: scale(1.1);
+}
+
+.cell.o::before {
+    content: 'O';
+    color: #1976d2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    transform: scale(1.1);
+}
+
+#status {
+    font-size: 2.2rem;
+    margin: 20px 0;
+    font-weight: bold;
+    color: #333;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+#reset-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 14px 28px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    background: #1976d2;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    transition: background 0.4s, box-shadow 0.4s, transform 0.4s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#reset-btn:hover {
+    background: #115293;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+#reset-btn:focus {
+    outline: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#status, .cell {
+    animation: fadeIn 0.5s ease-out;
+}
